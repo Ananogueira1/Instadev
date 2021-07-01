@@ -11,7 +11,7 @@ namespace Instadev.Models
         public string Legenda { get; set; }
         public int Likes {get; set;}
         public int IDUsuario {get; set;}
-        private const string CAMINHO = "Database/equipe.csv";
+        private const string CAMINHO = "Database/post.csv";
 
         public Post(){
             this.CriarPastaEArquivo(CAMINHO);
