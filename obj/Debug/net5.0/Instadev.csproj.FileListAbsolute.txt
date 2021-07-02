@@ -38,3 +38,4 @@ C:\Users\55119\Desktop\Instadev\obj\Debug\net5.0\ref\Instadev.dll
 C:\Users\55119\Desktop\Instadev\obj\Debug\net5.0\Instadev.pdb
 C:\Users\55119\Desktop\Instadev\obj\Debug\net5.0\Instadev.genruntimeconfig.cache
 C:\Users\55119\Desktop\Instadev\obj\Debug\net5.0\Instadev.csproj.CopyComplete
+C:\Users\55119\Desktop\Instadev\obj\Debug\net5.0\Razor\Views\Usuario\Index.cshtml.g.cs
