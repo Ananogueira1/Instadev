@@ -86,6 +86,9 @@ namespace Instadev.Models
             
             return IdsPreparados;
         }
+        // public void ModificarEmail(string _email){
+        //     Email = _email;
+        // }
     }
 
 }
