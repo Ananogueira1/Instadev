@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "Feed";
 }
+
 <head>
     <link rel="stylesheet" href="~/css/Feed.css">
 </head>
@@ -8,43 +9,34 @@
     <div class="Aside">
         <div class="container_aside">
             <img src="">
+            @* <img src="@ViewBag.ImagemDeUsuario"> *@
             <div class="texto_aside">
                 <h1>nome de usuário</h1>
+                @* <h1>@ViewBag.NomeDeUsuario</h1> *@
                 <h2>nome</h2>
+                @* <h2>@ViewBag.Nome</h2> *@
             </div>
         </div>
     </div>
     <div class="Main">
         <section class="Usuarios">
             <div class="container_usuarios container_grid  container_grid_main">
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
-                <div class="box_usuarios">
-                    <img class="user_usuarios" src="">
-                    <span>nome de usuário</span>
-                </div>
+                @{
+                    if (ViewBag.Usuarios.Count >= 1)
+                    {
+                        foreach (var item in ViewBag.UsuariosExpostos)
+                        {
+                            <div class="box_usuarios">
+                                <img class="user_usuarios" src="@item.ImagemDePerfil">
+                                <span>@item.NomeDeUsuario</span>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>Só você de usuário? Então chame seus amigos!</p>
+                    }
+                }
             </div>
         </section>
         <section class="Postar">
@@ -53,19 +45,20 @@
                     <img src="" />
                     <span>Postar</span>
                 </div>
-                <form class="formulario_postar" method="POST" action='@Url.Action("Postar")' enctype="multipart/form-data">
+                <form class="formulario_postar" method="POST" action='@Url.Action("Postar")'
+                    enctype="multipart/form-data">
                     <input name="Legenda" class="input_formulario_postar_descricao"
-                        placeholder="Digite a descrição da imagem..." type="text" />
+                        placeholder="Digite a descrição da imagem..." type="text" required />
                     <label for="input_imagem_postar">Escolha a imagem</label>
                     <input name="Imagem" id="input_imagem_postar" class="input_formulario_postar_imagem"
-                        accept="image/*" type="file" />
+                        accept="image/*" type="file" required />
                     <input class="input_formulario_postar_submit" value="Postar" type="submit" />
                 </form>
             </div>
         </section>
         <section class="Posts">
             @{
-                if (ViewBag.Posts != null)
+                if (ViewBag.Posts.Count >= 1)
                 {
                     foreach (var item in ViewBag.Posts)
                     {
@@ -75,6 +68,17 @@
                                     <img src="">
                                     <div class="post_usuario_texto">
                                         <span class="post_usuario_texto_nick">Nome de usuário</span>
+                                        @* <span class="post_usuario_texto_nick">@{
+                                                foreach (var item2 in ViewBag.Usuarios)
+                                                {
+
+                                                    if (item2.IdUsuario = item.IDUsuario)
+                                                    {
+                                                        @item2.NomeDeUsuario;
+                                                    }
+                                                }
+                                            }
+                                        </span> *@
                                         <p class="post_usuario_texto_local">@item.Legenda</p>
                                     </div>
                                 </div>
@@ -94,6 +98,10 @@
                             </div>
                         </div>
                     }
+                }
+                else
+                {
+                    <p>Não há posts ainda :( Seja o primeiro a postar!!!</p>
                 }
             }
         </section>
