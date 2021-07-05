@@ -1,0 +1,101 @@
+@{
+    ViewData["Title"] = "Feed";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Feed.css">
+</head>
+<div class="alinhamento_aside_main container_grid">
+    <div class="Aside">
+        <div class="container_aside">
+            <img src="">
+            <div class="texto_aside">
+                <h1>nome de usuário</h1>
+                <h2>nome</h2>
+            </div>
+        </div>
+    </div>
+    <div class="Main">
+        <section class="Usuarios">
+            <div class="container_usuarios container_grid  container_grid_main">
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+                <div class="box_usuarios">
+                    <img class="user_usuarios" src="">
+                    <span>nome de usuário</span>
+                </div>
+            </div>
+        </section>
+        <section class="Postar">
+            <div class="container_postar container_grid_main container_grid">
+                <div class="box_postar_usuario">
+                    <img src="" />
+                    <span>Postar</span>
+                </div>
+                <form class="formulario_postar" method="POST" action='@Url.Action("Postar")' enctype="multipart/form-data">
+                    <input name="Legenda" class="input_formulario_postar_descricao"
+                        placeholder="Digite a descrição da imagem..." type="text" />
+                    <label for="input_imagem_postar">Escolha a imagem</label>
+                    <input name="Imagem" id="input_imagem_postar" class="input_formulario_postar_imagem"
+                        accept="image/*" type="file" />
+                    <input class="input_formulario_postar_submit" value="Postar" type="submit" />
+                </form>
+            </div>
+        </section>
+        <section class="Posts">
+            @{
+                if (ViewBag.Posts != null)
+                {
+                    foreach (var item in ViewBag.Posts)
+                    {
+                        <div class="container_posts container_grid container_grid_main">
+                            <div class="box_post">
+                                <div class="post_usuario">
+                                    <img src="">
+                                    <div class="post_usuario_texto">
+                                        <span class="post_usuario_texto_nick">Nome de usuário</span>
+                                        <p class="post_usuario_texto_local">@item.Legenda</p>
+                                    </div>
+                                </div>
+                                <img class="img_post" src="images/Posts/@item.Imagem">
+                                <div class="post_interacoes">
+                                    <i class="far fa-heart post_interacoes_icon"></i>
+                                    <i class="far fa-comment post_interacoes_icon"></i>
+                                    <input class="input_comentar" type="text" placeholder="Comentar...">
+                                </div>
+                                <div class="post_numlikes_comentarios">
+                                    <span>INTLikes</span>
+                                    <div class="comentarios_texto">
+                                        <span>Nome de usuário</span>
+                                        <p>comentário</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </section>
+    </div>
+</div>
