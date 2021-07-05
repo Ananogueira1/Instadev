@@ -14,8 +14,6 @@ namespace Instadev.Models
 
         public string NomeDeUsuario { get; set; }
 
-        // List<Post> Postagem = new List<Post>();
-
         List<int> IdsPosts { get; set; }
 
         public string ImagemDePerfil { get; set; }
@@ -86,9 +84,9 @@ namespace Instadev.Models
             
             return IdsPreparados;
         }
-        // public void ModificarEmail(string _email){
-        //     Email = _email;
-        // }
+        public void ModificarSenha(string _senha){
+            Senha = _senha;
+        }
     }
 
 }
