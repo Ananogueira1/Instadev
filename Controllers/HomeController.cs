@@ -20,7 +20,7 @@ namespace Instadev.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return LocalRedirect("~/Cadastro");
         }
 
         public IActionResult Privacy()

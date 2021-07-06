@@ -87,6 +87,7 @@ namespace Instadev.Models
                 Id = $"{item.ToString()},";
                 Ids.Add(Id);
             }
+            
             string IdsPreparados = string.Join("", Ids);
             
             return IdsPreparados;
