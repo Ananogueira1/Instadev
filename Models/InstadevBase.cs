@@ -1,8 +1,6 @@
 using System.IO;
-using System;
 using System.Collections.Generic;
-
-namespace Instadev.Models
+namespace Instadev
 {
     public class InstadevBase
     {

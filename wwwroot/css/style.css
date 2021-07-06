@@ -1,0 +1,127 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: #FAFAFA;
+    ;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.grupo_texto_cadastro {
+    color: rgba(var(--f52, 142, 142, 142), 1);
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.grupo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(var(--d87, 255, 255, 255), 1);
+    padding: 1.3rem 0;
+    border: 1px solid #F1F1F1;
+    border-radius: 1px;
+    width: 342px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+}
+
+.grupo_texto {
+    color: rgba(var(--f52, 142, 142, 142), 1);
+    font-size: 12px;
+    line-height: 16px;
+    margin: 10px 40px;
+    text-align: center;
+}
+
+.grupo_texto1 {
+    color: black;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 40px;
+    text-align: center;
+}
+
+input {
+    background: #FAFAFA;
+    width: 80%;
+    padding: 7px 7px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.Form_Login {
+    margin: 6px 0;
+    margin-left: 19%;
+    width: 100%;
+}
+
+input:hover {
+    background: #f1f1f1;
+}
+
+.btn {
+    background-color: #0095f6;
+    color: #FAFAFA;
+    width: 80%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 7px;
+    font-size: medium;
+    margin-top: 17px;
+}
+
+.btn:hover {
+    background: #0073c0;
+}
+
+.logar {
+    text-decoration: none;
+    color: #0095f6;
+}
+
+.logar:hover {
+    color: #0073c0;
+}
+
+.tenha_o_app_txt {
+    display: flex;
+    justify-content: center;
+    font-size: 14px
+}
+
+.tenha_o_app_txt p {
+    margin-top: 14px;
+    margin-bottom: 1rem;
+}
+
+.img_link {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: -8px;
+}
+
+.espaco_entre_img {
+    margin: 5px;
+}
