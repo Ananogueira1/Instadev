@@ -4,11 +4,11 @@
 }
 body { 
     overflow-x: hidden;
-    background-color: #FAFAFA; 
+    background-color: #FAFAFA;
 }
 .container {
     width: 950px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .erro{
     color:#FF0000;

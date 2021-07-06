@@ -1,39 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Instadev</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    <link rel="stylesheet" href="/css/Perfil_CSS.css" />
+    <script src="https://kit.fontawesome.com/77a9a4e10d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/Header.css">
 </head>
-<body>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Instadev</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav class="container NavHeader">
+            <a href=""><img src="../Img/Instadev.jpg" alt="Logo_Instadev" height="27px"></a>
+            <input class="InputPesquisar" type="search" name="Pesquisar" placeholder="&#xf002 Pesquisar">
+            <nav class="NavHeaderIcones">
+                <a href=""><img src="../Img/Vector.png" alt="Home" height="21px" width="19.5px"></a>
+                <img src="../Img/plane 1.png" alt="Mensagens">
+                <img src="../Img/compass 1.png" alt="Explorar" height="24px">
+                <img src="../img/Vector (1).png" alt="Curtidas" height="20px">
+                <a href=""><input class="ImagemPerfil" type="image" src="../Img/SemFoto.png" alt="Perfil" width="32px"></a>
+            </nav>
         </nav>
     </header>
-    <div class="container">
+    
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -44,5 +37,4 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
 </html>

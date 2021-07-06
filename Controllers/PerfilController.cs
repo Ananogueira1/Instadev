@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Instadev.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,8 @@ namespace Instadev.Controllers
 
         [Route("Listar")]
         public IActionResult Index(){
-            ViewBag.Perfil = Usuario.ExibirInfo();
+            List<Usuario> Usuarios = Usuario.ExibirInfo();
+            ViewBag.Perfil = Usuarios.Find( x => x.NomeDeUsuario == ViewBag.Username);
             return View();
         }
 

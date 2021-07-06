@@ -29,14 +29,14 @@ namespace Instadev.Controllers
             if (form.Files.Count > 0)
             {
                 var file = form.Files[0];
-                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Post"); //INCOMPLETO
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post"); //INCOMPLETO
 
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
                 }
 
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Post", folder, file.FileName); //INCOMPLETO
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post", folder, file.FileName); //INCOMPLETO
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
