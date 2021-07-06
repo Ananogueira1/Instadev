@@ -7,7 +7,7 @@
 </head>
 <div class="alinhamento_aside_main container_grid">
     <div class="Aside">
-        <a class="container_aside" asp-area="" asp-controller="Perfil" asp-action="Index">
+        <div class="container_aside" asp-area="" asp-controller="Perfil" asp-action="Index">
             <img src="">
             @* <img src="@ViewBag.ImagemDeUsuario"> *@
             <div class="texto_aside">
@@ -15,7 +15,7 @@
                 @* <h1>@ViewBag.NomeDeUsuario</h1> *@
                 <h2>nome</h2>
                 @* <h2>@ViewBag.Nome</h2> *@
-            </a>
+            </div>
         </div>
     </div>
     <div class="Main">
@@ -34,7 +34,7 @@
                     }
                     else
                     {
-                        <p>Só você de usuário? Então chame seus amigos!</p>
+                        <p class="texto_triste">Só você de usuário? Então chame seus amigos!</p>
                     }
                 }
             </div>
@@ -101,7 +101,7 @@
                 }
                 else
                 {
-                    <p>Não há posts ainda :( Seja o primeiro a postar!!!</p>
+                    <p class="texto_triste">Não há posts ainda :( Seja o primeiro a postar!!!</p>
                 }
             }
         </section>
