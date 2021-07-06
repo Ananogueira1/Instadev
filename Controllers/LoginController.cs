@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Instadev.Controllers
 {
 
+    [Route("Login")]
     public class LoginController : Controller
     {
         Usuario UsuarioModel = new Usuario();
