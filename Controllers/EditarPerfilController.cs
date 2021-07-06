@@ -43,8 +43,23 @@ namespace Instadev.Controllers
         [Route("AlterarUsuario")]
         public IActionResult AlterarUsuario(IFormCollection Form)
         {
-            Usuario NovoUsuario = new Usuario();
-
+            List<Usuario> Usuarios = UsuarioModel.ExibirInfo();
+            Usuario NovoUsuario = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username);
+            NovoUsuario.Nome = Form["Nome"];
+            NovoUsuario.NomeDeUsuario = Form["NomeDeUsuario"];
+            NovoUsuario.Email = Form["Email"];
+            if (NovoUsuario.Email == null)
+            {
+                NovoUsuario.Email = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).Email;
+            }
+            if (NovoUsuario.Nome == null)
+            {
+                NovoUsuario.Nome = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).Nome;
+            }
+            if (NovoUsuario.NomeDeUsuario == null)
+            {
+                NovoUsuario.NomeDeUsuario = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).NomeDeUsuario;
+            }
             return LocalRedirect("~/EditarPerfil/Index");
         }
     }
