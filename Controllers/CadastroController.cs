@@ -24,7 +24,7 @@ namespace Instadev.Controllers
                 Usuario novoUsuario = new Usuario();
 
                 novoUsuario.ImagemDePerfil = form["Imagem de perfil"];
-                novoUsuario.IdUsuario = Int32.Parse(form["IdUsuario"]);
+                novoUsuario.IdUsuario = usuarioModel.GerarID("Database/Usuario.csv");
                 novoUsuario.Nome = form["Nome"];
                 novoUsuario.NomeDeUsuario = form["Nome de Usuário"];
                 novoUsuario.Email = form["Email"];

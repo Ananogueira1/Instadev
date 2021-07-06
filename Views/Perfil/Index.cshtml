@@ -1,6 +1,10 @@
+
+@{
+    ViewData["Title"] = "Perfil";
+}
 <body>
     <section class="container DadosPerfil">
-        <img src="Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
+        <img src="/Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
         <div class="DadosPerfilDireita">
             <h1>Username do perfil</h1>
             <div class="PublicacaoSeguindoSeguidores">
@@ -10,49 +14,52 @@
             </div>
             <div class="NomeSair">
                 <span>Nome do perfil</span>
-                <a href="">Editar Perfil</a>
-                <a href="">Sair</a>
+                <a href="~/EditarPerfil">Editar Perfil</a>
+                <a asp-area="" asp-controller="Perfil" asp-action="Sair">Sair</a>
             </div>
         </div>
     </section>
     <section class="container PostsPerfil">
         <div class="Publicações">
-            <img src="Img/image 1.png" alt="Ícone publicações" width="16px" height="14px">
+            <img src="/Img/image 1.png" alt="Ícone publicações" width="16px" height="14px">
             <span>publicações</span>
         </div>
-        <!-- PARA CADA OBJETO POST (FOREACH) -->
+        @* @foreach (Post p in ViewBag.post)
+        { *@
         <div class="Postagem">
-            <img src="Img/SemFoto.png" alt="Foto do post" width="430px" height="404px">
+            <img src="/Img/SemFoto.png" alt="Foto do post" width="430px" height="404px">
             <div class="DadosDaPostagem">
                 <div class="DadosCurtidas">
                     <div class="DadosPerfilPost">
-                        <img src="Img/SemFoto.png" alt="Foto de perfil">
+                        <img src="/Img/SemFoto.png" alt="Foto de perfil">  <!-- Na foto é necessário a foto de perfil do usuario logado -->
                         <div class="NomeLocal">
-                            <h1>Nome do perfil</h1>
-                            <!-- AVALIAR SE HÁ LOCAL DO POST -->
+                            <h1>Nome do perfil</h1> <!-- No nome é necessário o nome perfil do usuario logado -->
                             <h2>local da foto</h2>
                         </div>
                     </div>
                     <div>
                         <div class="CurtirComentar">
-                            <img src="Img/Vector1.png" alt="Curtir">
-                            <img src="Img/Vector (3).png" alt="Comentar">
+                            <img src="/Img/Vector1.png" alt="Curtir">
+                            <img src="/Img/Vector (3).png" alt="Comentar">
                         </div>
                         <span class="NumeroCurtidas">X Curtidas</span>
                     </div>
                 </div>
                 <section class="Comentarios">
-                    <!-- PARA CADA COMENTÁRIO (FOREACH)-->
+                    @* @foreach (var Comentários in ViewBag.comentarios)
+                    { *@
                     <div class="CadaComentario">
                         <div class="UserComentario">
                             <span>UserRandom</span>
                             <p>Comentário aleatório</p>
                         </div>
-                        <img src="Img/Vector1.png" alt="Curtir comentário">
+                        <img src="/Img/Vector1.png" alt="Curtir comentário">
                     </div>
+                    @* } *@
                 </section>
                 <span class="VerComentarios">Ver todos os comentários</span>
             </div>
-        </div>
+        </div>      
+        }
     </section>
 </body>
