@@ -23,4 +23,5 @@ namespace Instadev
                     webBuilder.UseStartup<Startup>();
                 });
     }
+    
 }
