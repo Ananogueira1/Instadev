@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/Feed.css">
+    <script src="https://kit.fontawesome.com/77a9a4e10d.js" crossorigin="anonymous"></script>
 </head>
 <div class="alinhamento_aside_main container_grid">
     <div class="Aside">
@@ -60,44 +61,46 @@
             @{
                 if (ViewBag.Posts.Count >= 1)
                 {
-                    foreach (var item in ViewBag.Posts)
-                    {
-                        <div class="container_posts container_grid container_grid_main">
-                            <div class="box_post">
-                                <div class="post_usuario">
-                                    <img src="">
-                                    <div class="post_usuario_texto">
-                                        <span class="post_usuario_texto_nick">Nome de usuário</span>
-                                        @* <span class="post_usuario_texto_nick">@{
+                    <div class="container_posts container_grid container_grid_main">
+                        @{
+                            foreach (var item in ViewBag.Posts)
+                            {
+                                <div class="box_post">
+                                    <div class="post_usuario">
+                                        <img src="">
+                                        <div class="post_usuario_texto">
+                                            <span class="post_usuario_texto_nick">Nome de usuário</span>
+                                            @* <span class="post_usuario_texto_nick">@{
                                                 foreach (var item2 in ViewBag.Usuarios)
                                                 {
 
-                                                    if (item2.IdUsuario = item.IDUsuario)
-                                                    {
-                                                        @item2.NomeDeUsuario;
-                                                    }
+                                                if (item2.IdUsuario = item.IDUsuario)
+                                                {
+                                                @item2.NomeDeUsuario;
                                                 }
-                                            }
-                                        </span> *@
-                                        <p class="post_usuario_texto_local">@item.Legenda</p>
+                                                }
+                                                }
+                                                </span> *@
+                                            <p class="post_usuario_texto_local">@item.Legenda</p>
+                                        </div>
+                                    </div>
+                                    <img class="img_post" src="../images/Posts/@item.Imagem">
+                                    <div class="post_interacoes">
+                                        <i class="far fa-heart post_interacoes_icon"></i>
+                                        <i class="far fa-comment post_interacoes_icon"></i>
+                                        <input class="input_comentar" type="text" placeholder="Comentar...">
+                                    </div>
+                                    <div class="post_numlikes_comentarios">
+                                        <span>INTLikes</span>
+                                        <div class="comentarios_texto">
+                                            <span>Nome de usuário</span>
+                                            <p>comentário</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <img class="img_post" src="images/Posts/@item.Imagem">
-                                <div class="post_interacoes">
-                                    <i class="far fa-heart post_interacoes_icon"></i>
-                                    <i class="far fa-comment post_interacoes_icon"></i>
-                                    <input class="input_comentar" type="text" placeholder="Comentar...">
-                                </div>
-                                <div class="post_numlikes_comentarios">
-                                    <span>INTLikes</span>
-                                    <div class="comentarios_texto">
-                                        <span>Nome de usuário</span>
-                                        <p>comentário</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                            }
+                        }
+                    </div>
                 }
                 else
                 {
