@@ -1,11 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+ <div class="grupo">
+            <img class="logo" src="~/img/Logo Instadev.png" alt="Logo do Instadev">
+            <p class="grupo_texto_cadastro">Cadastre-se para ver fotos e vídeos dos seus amigos.</p>
+            <form enctype="multipart/form-data" method="POST" action='@Url.Action("Cadastrar")' class="Form_Login">
+                <input type="text" pattern="[a-zA-Z0-9]+" name="Nome" placeholder="Nome completo"required>
+                <input type="text" pattern="[a-zA-Z0-9]+" name="Nome De Usuario" placeholder="Nome de usuário" required>
+                <input type="email" pattern="[a-zA-Z0-9]+" name="Email" placeholder="Email" required>
+                <input type="password" pattern="[a-zA-Z0-9]+" name="Senha" placeholder="Senha" required>
+                <input class="btn" value ="Cadastre-se" type="submit"></input>
+            </form>
+            
+            <p class="grupo_texto">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies. </p>
+        </div>
 
-
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-   <a asp-area="" asp-controller="Login" asp-action="Index">Logar</a>
-</div>
+        <div class="grupo">
+            <span class="grupo_texto1">Tem uma conta? <a asp-area="" asp-controller="Login" asp-action="Index">Conecte-se</a> ></span>
+        </div>
+        <div class="tenha_o_app_txt">
+            <p>Obtenha o aplicativo</p>
+        </div>
+        <div class="img_link">
+            <a href="https://apps.apple.com/br/app/instagram/id389801252"><img src="~/img/app_store 1.png" alt="Link de redirecionamento para a App Store"></a>
+            <div class="espaco_entre_img"></div>
+            <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=pt_BR&gl=US"><img src="~/img/google_play 1.png" alt="Link de redirecionamento para a Play Store"></a>
+        </div>
