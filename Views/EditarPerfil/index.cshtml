@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="~/css/EditarPerfil.css" />
+</head>
+<div class="Main">
+    <div class="container_main container_grid">
+        <section class="TituloBox">
+            <h1 class="Titulo">Editar Perfil</h1>
+        </section>
+        <section class="FormularioColunaUm FormularioColuna">
+            <img src="../images/Usuarios/@ViewBag.ImagemDePerfilUsuarioLogado" />
+            <label>Nome</label>
+            <label>Nome de usuário</label>
+            <label>Email</label>
+        </section>
+        <section class="FormularioColunaDois FormularioColuna">
+            <h2>Nome de usuário</h2>
+            <label for="input_imagem">Alterar foto de perfil</label>
+                <form method="POST" action='@Url.Action("AlterarUsuario")' enctype="multipart/form-data">
+                    <input id="input_imagem" type="file" accept="image/*" />
+                    <input type="text" name="Nome"/>
+                    <p class="espacar_p2">Ajude as pessoas a descobrir sua conta usando o nome pelo qual você é
+                        conhecido:
+                        seu nome
+                        completo, apelido ou nome comercial.</p>
+                    <p class="espacar_input_nome">Você pode alterar o seu nome apenas duas vezes a cada 14 dias.</p>
+                    <input type="text" name="NomeDeUsuario"/>
+                    <p class="espacar_spanp4">Na maioria dos casos, você poderá alterar seu nome de usuário novamente
+                        para
+                        nascimento_tr por
+                        mais 14 dias.</p>
+                    <div class="espacar_input_email">
+                        <span>Informações pessoais</span>
+                        <p>Forneça suas informações pessoais, mesmo se a conta for usada para uma empresa, um animal de
+                            estimação ou outra coisa. Elas não farão parte do seu perfil público.</p>
+                    </div>
+                    <input type="email" name="Email"/>
+                    <div class="EditarPerfilFormulario_form_submit">
+                        <input class="input_enviar" value="Enviar" type="submit" />
+                        <label class="input_deletar" for="InputDeletar">Desativar minha conta definitivamente</label>
+                    </div>
+                </form>
+                <form method="POST" action='@Url.Action("DeletarUsuario")' enctype="multipart/form-data">
+                    <input id="InputDeletar"type="submit" class="none" />
+                </form>
+        </section>
+    </div>
+</div>
