@@ -15,7 +15,7 @@ namespace Instadev.Models
         private const string CAMINHO = "Database/post.csv";
 
         public Post(){
-            this.CriarPastaEArquivo(CAMINHO);
+            CriarPastaEArquivo(CAMINHO);
         }
         public string Preparar(Post P)
         {
@@ -27,7 +27,7 @@ namespace Instadev.Models
             List <string> Linhas = this.LerTodasLinhasCSV(CAMINHO);
             Linhas.RemoveAll(x => x.Split(";")[0] == P.IDPost.ToString()); 
             Linhas.Add(Preparar(P));
-            this.ReescreverCSV(CAMINHO, Linhas);
+            ReescreverCSV(CAMINHO, Linhas);
         }
 
         public void Criar(Post P)
@@ -40,7 +40,7 @@ namespace Instadev.Models
         {
             List <string> Linhas = this.LerTodasLinhasCSV(CAMINHO);
             Linhas.RemoveAll(x => x.Split(";")[0] == ID.ToString()); 
-            this.ReescreverCSV(CAMINHO, Linhas);
+            ReescreverCSV(CAMINHO, Linhas);
         }
 
         public List<Post> LerTodas()
