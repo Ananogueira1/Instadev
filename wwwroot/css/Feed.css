@@ -232,7 +232,7 @@ header{
 }
 .container_posts{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
 }
 .box_post{
@@ -270,7 +270,7 @@ header{
     font-weight: 400;
 }
 .img_post{
-    width: 100%;
+    width: 608px;
 }
 .post_interacoes{
     display: flex;

@@ -19,9 +19,10 @@ namespace Instadev.Controllers
             {
                 Random aleatorio = new Random();
                 bool condicao = false;
+                string NomeDeUsuarioUsuarioLogado = HttpContext.Session.GetString("Username");
                 List<Usuario> _usuarios = new List<Usuario>();
                 _usuarios = UsuarioModel.ExibirInfo();
-                _usuarios.RemoveAll(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
+                _usuarios.RemoveAll(x => x.NomeDeUsuario == NomeDeUsuarioUsuarioLogado);
                 do
                 {
                     if (_usuarios.Count <= 7)
@@ -34,6 +35,11 @@ namespace Instadev.Controllers
                         condicao = true;
                     }
                 } while (condicao == true);
+                string UsuarioLogadoImagemDePerfil =  UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == NomeDeUsuarioUsuarioLogado).ImagemDePerfil;
+                string UsuarioLogadoNome =  UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == NomeDeUsuarioUsuarioLogado).Nome;
+                ViewBag.UsuarioLogadoImagemDePerfil = UsuarioLogadoImagemDePerfil;
+                ViewBag.UsuarioLogadoNome = UsuarioLogadoNome;
+                ViewBag.UsuarioLogadoNomeDeUsuario =  NomeDeUsuarioUsuarioLogado;
                 ViewBag.UsuariosExpostos = _usuarios;
                 ViewBag.Usuarios = UsuarioModel.ExibirInfo();
                 ViewBag.Posts = PostModel.LerTodas();
@@ -47,23 +53,22 @@ namespace Instadev.Controllers
         [Route("Postar")]
         public IActionResult Postar(IFormCollection Form)
         {
+            string NomeDeUsuarioUsuarioLogado = HttpContext.Session.GetString("Username");
             List<Usuario> usuarios = new List<Usuario>();
+            usuarios = UsuarioModel.ExibirInfo();
             Post NovoPost = new Post();
-            ViewBag.NomeUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Nome;
-            ViewBag.NomeDeUsuarioUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
-            ViewBag.ImagemDePerfilUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
-            PostModel.IDUsuario = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario;
+            NovoPost.IDUsuario = usuarios.Find(x => x.NomeDeUsuario == NomeDeUsuarioUsuarioLogado).IdUsuario;
             NovoPost.Legenda = Form["Legenda"];
             NovoPost.IDPost = PostModel.GerarID("Database/post.csv");
             if (Form.Files.Count > 0)
             {
                 var Arquivo = Form.Files[0];
-                var Pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Feed/images/Posts");
+                var Pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Posts");
                 if (!Directory.Exists(Pasta))
                 {
                     Directory.CreateDirectory(Pasta);
                 }
-                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Feed/images/Posts", Arquivo.FileName);
+                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Posts", Arquivo.FileName);
                 using (var Stream = new FileStream(caminho, FileMode.Create))
                 {
                     Arquivo.CopyTo(Stream);
