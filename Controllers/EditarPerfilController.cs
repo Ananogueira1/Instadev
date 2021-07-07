@@ -63,6 +63,7 @@ namespace Instadev.Controllers
             {
                 NovoUsuario.ImagemDePerfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
             }
+            UsuarioModel.EditarPerfil(NovoUsuario);
             return LocalRedirect("~/EditarPerfil/Index");
         }
         public IActionResult DeletarUsuario()
