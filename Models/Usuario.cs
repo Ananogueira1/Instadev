@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Instadev.Interfaces;
@@ -6,22 +7,14 @@ namespace Instadev.Models
 {
     public class Usuario : InstadevBase, IUsuario
     {
-        public Usuario(int idUsuario, string nome, string nomeDeUsuario, string imagemDePerfil) 
-        {
-            this.IdUsuario = idUsuario;
-                this.Nome = nome;
-                this.NomeDeUsuario = nomeDeUsuario;
-                this.ImagemDePerfil = imagemDePerfil;
-               
-        }
-                public int IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
         public string Email;
         private string Senha;
         public string Nome { get; set; }
 
         public string NomeDeUsuario { get; set; }
 
-        List<int> IdsPosts { get; set; }
+        // List<int> IdsPosts { get; set; }
 
         public string ImagemDePerfil { get; set; }
         private const string CAMINHO = "Database/Usuario.csv";
@@ -52,8 +45,8 @@ namespace Instadev.Models
                 string[] linha = item.Split(";");
 
                 Usuario usuario = new Usuario();
+                usuario.IdUsuario = Int32.Parse(linha[0]);
                 usuario.ImagemDePerfil = linha[1];
-                usuario.IdUsuario = int.Parse(linha[0]);
                 usuario.Nome = linha[2];
                 usuario.NomeDeUsuario = linha[3];
                 usuario.Email = linha[4];
