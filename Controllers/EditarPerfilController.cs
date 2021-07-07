@@ -14,27 +14,28 @@ namespace Instadev.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
+            ViewBag.ImagemDePerfilUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
             return View();
         }
         [Route("AlterarUsuario")]
         public IActionResult AlterarUsuario(IFormCollection Form)
         {
             List<Usuario> Usuarios = UsuarioModel.ExibirInfo();
-            Usuario NovoUsuario = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username);
+            Usuario NovoUsuario = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
             NovoUsuario.Nome = Form["Nome"];
             NovoUsuario.NomeDeUsuario = Form["NomeDeUsuario"];
             NovoUsuario.Email = Form["Email"];
             if (NovoUsuario.Email == null)
             {
-                NovoUsuario.Email = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).Email;
+                NovoUsuario.Email = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Email;
             }
             if (NovoUsuario.Nome == null)
             {
-                NovoUsuario.Nome = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).Nome;
+                NovoUsuario.Nome = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Nome;
             }
             if (NovoUsuario.NomeDeUsuario == null)
             {
-                NovoUsuario.NomeDeUsuario = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).NomeDeUsuario;
+                NovoUsuario.NomeDeUsuario = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).NomeDeUsuario;
             }
             if (Form.Files.Count > 0)
             {
@@ -52,13 +53,13 @@ namespace Instadev.Controllers
                 NovoUsuario.ImagemDePerfil = Arquivo.FileName;
             }
             else{
-                NovoUsuario.ImagemDePerfil = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username).ImagemDePerfil;
+                NovoUsuario.ImagemDePerfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
             }
             return LocalRedirect("~/EditarPerfil/Index");
         }
         public IActionResult DeletarUsuario(){
-            UsuarioModel.DeletarPerfil(UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == ViewBag.Username).IdUsuario);
-            ViewBag.Username = null;
+            UsuarioModel.DeletarPerfil(UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario);
+            HttpContext.Session.Remove("Username");
             return LocalRedirect("~/Home/Index");
         }
     }
