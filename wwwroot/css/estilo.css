@@ -4,10 +4,6 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
-<<<<<<< HEAD
-=======
-    margin-bottom: 10px;
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 }
 
 body {
@@ -16,7 +12,6 @@ body {
 }
 
 main {
-<<<<<<< HEAD
     margin-top: 20px;
 }
 
@@ -27,9 +22,6 @@ main {
     margin: 10px 40px;
     font-weight: 600;
     text-align: center;
-=======
-    margin-top: 2%;
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 }
 
 .grupo {
@@ -38,11 +30,7 @@ main {
     align-items: center;
     flex-direction: column;
     background-color: rgba(var(--d87, 255, 255, 255), 1);
-<<<<<<< HEAD
     padding: 1.3rem 0;
-=======
-    padding: 2.3rem 0;
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
     border: 1px solid #F1F1F1;
     border-radius: 1px;
     width: 342px;
@@ -51,7 +39,6 @@ main {
     margin-top: 1%;
 }
 
-<<<<<<< HEAD
 .grupo_texto {
     color: rgba(var(--f52, 142, 142, 142), 1);
     font-size: 12px;
@@ -61,32 +48,6 @@ main {
 }
 
 .grupo_texto1 {
-=======
-.Form_Login{
-    margin: 6px 0;
-    margin-left: 19%;
-    width: 100%;
-}
-
-
-.grupo1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(var(--d87, 255, 255, 255), 1);
-    padding: 2.3rem 0;
-    border: 1px solid #F1F1F1;
-    border-radius: 1px;
-    width: 342px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1%;
-}
-
-
-.grupo_texto1{
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
     color: black;
     font-size: 14px;
     line-height: 16px;
@@ -105,15 +66,12 @@ input {
     font-size: 12px;
 }
 
-<<<<<<< HEAD
 .Form_Login {
     margin: 6px 0;
     margin-left: 19%;
     width: 100%;
 }
 
-=======
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 input:hover {
     background: #f1f1f1;
 }
@@ -137,16 +95,11 @@ input:hover {
     background: #0073c0;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 .logar {
     text-decoration: none;
     color: #0095f6;
 }
 
-<<<<<<< HEAD
 .logar:hover {
     color: #0073c0;
 }
@@ -160,70 +113,15 @@ input:hover {
 .tenha_o_app_txt p {
     margin-top: 14px;
     margin-bottom: 1rem;
-=======
-.grupo_ou{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1%;
-}
-
-.grupo_hr{
-    width: 116px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #cbcbcb;
-    margin-top: 5px;  
-}
-
-.ou{
-    color: #909090;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
-    padding: 0 9px;
-}
-
-.esqueceu_sua_senha{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: center;
-   text-decoration: none;
-    margin-top: 3%;  
-    color: #0095f6;
-}
-
-.Cadastrar{
-        text-decoration: none;
-        color: #0095f6;
-}
-
-.tenha_o_app_txt {
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    font-size: 14px
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 }
 
 .img_link {
     display: flex;
     justify-content: center;
     padding: 5px;
-<<<<<<< HEAD
     margin: -8px;
 }
 
 .espaco_entre_img {
     margin: 5px;
-=======
-    margin: 5px;
-}
-
-.espaço_entre_img{
-        margin: 0.2%;
->>>>>>> 7577a2544197bf248554d3be010fd90065e44c5f
 }

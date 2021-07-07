@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj": {}
+    "C:\\Users\\55119\\Desktop\\Instadev\\Instadev.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj": {
+    "C:\\Users\\55119\\Desktop\\Instadev\\Instadev.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj",
+        "projectUniqueName": "C:\\Users\\55119\\Desktop\\Instadev\\Instadev.csproj",
         "projectName": "Instadev",
-        "projectPath": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj",
-        "packagesPath": "C:\\Users\\Familia Nogueira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\obj\\",
+        "projectPath": "C:\\Users\\55119\\Desktop\\Instadev\\Instadev.csproj",
+        "packagesPath": "C:\\Users\\55119\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\55119\\Desktop\\Instadev\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Familia Nogueira\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\55119\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
@@ -55,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
