@@ -16,17 +16,19 @@ namespace Instadev.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+
         }
 
         public IActionResult Index()
         {
-            return View();
+            return LocalRedirect("~/Cadastro");
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-    }
 
+    }
 }
+

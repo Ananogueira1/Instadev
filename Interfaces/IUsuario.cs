@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Instadev.Models;
 
+
 namespace Instadev.Interfaces
 {
     public interface IUsuario

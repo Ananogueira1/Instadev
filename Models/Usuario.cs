@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using Instadev.Interfaces;
@@ -7,7 +6,15 @@ namespace Instadev.Models
 {
     public class Usuario : InstadevBase, IUsuario
     {
-        public int IdUsuario { get; set; }
+        public Usuario(int idUsuario, string nome, string nomeDeUsuario, string imagemDePerfil) 
+        {
+            this.IdUsuario = idUsuario;
+                this.Nome = nome;
+                this.NomeDeUsuario = nomeDeUsuario;
+                this.ImagemDePerfil = imagemDePerfil;
+               
+        }
+                public int IdUsuario { get; set; }
         public string Email;
         private string Senha;
         public string Nome { get; set; }
@@ -80,6 +87,7 @@ namespace Instadev.Models
                 Id = $"{item.ToString()},";
                 Ids.Add(Id);
             }
+            
             string IdsPreparados = string.Join("", Ids);
             
             return IdsPreparados;
