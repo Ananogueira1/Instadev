@@ -14,8 +14,15 @@ namespace Instadev.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
-            ViewBag.ImagemDePerfilUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
-            return View();
+            if (HttpContext.Session.GetString("Username") != null)
+            {
+                ViewBag.ImagemDePerfilUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+                return View();
+            }
+            else
+            {
+                return LocalRedirect("~/Cadastrar/Index");
+            }
         }
         [Route("AlterarUsuario")]
         public IActionResult AlterarUsuario(IFormCollection Form)
@@ -52,12 +59,14 @@ namespace Instadev.Controllers
                 }
                 NovoUsuario.ImagemDePerfil = Arquivo.FileName;
             }
-            else{
+            else
+            {
                 NovoUsuario.ImagemDePerfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
             }
             return LocalRedirect("~/EditarPerfil/Index");
         }
-        public IActionResult DeletarUsuario(){
+        public IActionResult DeletarUsuario()
+        {
             UsuarioModel.DeletarPerfil(UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario);
             HttpContext.Session.Remove("Username");
             return LocalRedirect("~/Home/Index");
