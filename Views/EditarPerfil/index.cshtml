@@ -1,3 +1,6 @@
+@{
+    ViewData["Title"] = "EditarPerfil";
+}
 <head>
     <link rel="stylesheet" href="~/css/EditarPerfil.css" />
 </head>
@@ -7,7 +10,7 @@
             <h1 class="Titulo">Editar Perfil</h1>
         </section>
         <section class="FormularioColunaUm FormularioColuna">
-            <img src="../images/Usuarios/@ViewBag.ImagemDePerfilUsuarioLogado" />
+            <img src="../images/Usuarios/@ViewBag.FotoDePerfil" />
             <label>Nome</label>
             <label>Nome de usuário</label>
             <label>Email</label>
@@ -16,7 +19,7 @@
             <h2>Nome de usuário</h2>
             <label for="input_imagem">Alterar foto de perfil</label>
                 <form method="POST" action='@Url.Action("AlterarUsuario")' enctype="multipart/form-data">
-                    <input id="input_imagem" type="file" accept="image/*" />
+                    <input id="input_imagem" type="file" accept="image/*" name="Imagem"/>
                     <input type="text" name="Nome"/>
                     <p class="espacar_p2">Ajude as pessoas a descobrir sua conta usando o nome pelo qual você é
                         conhecido:

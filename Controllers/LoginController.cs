@@ -33,7 +33,12 @@ namespace Instadev.Controllers
 
             if (Logado != null)
             {
+                HttpContext.Session.SetString("IdUsuario", Logado.Split(";")[0]);
                 HttpContext.Session.SetString("Username", Logado.Split(";")[3]);
+                HttpContext.Session.SetString("FotoDePerfil", Logado.Split(";")[1]);
+                HttpContext.Session.SetString("Email", Logado.Split(";")[4]);
+                HttpContext.Session.SetString("Senha", Logado.Split(";")[5]);
+                HttpContext.Session.SetString("Nome", Logado.Split(";")[2]);
 
                 return LocalRedirect("~/Feed/Index");
             }

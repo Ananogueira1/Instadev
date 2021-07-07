@@ -16,7 +16,12 @@ namespace Instadev.Controllers
         {
             if (HttpContext.Session.GetString("Username") != null)
             {
-                ViewBag.ImagemDePerfilUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+                ViewBag.Usuarios = UsuarioModel.ExibirInfo();
+                ViewBag.UserName = HttpContext.Session.GetString("Username");
+                ViewBag.Nome = HttpContext.Session.GetString("Nome");
+                ViewBag.Email = HttpContext.Session.GetString("Email");
+                ViewBag.Senha = HttpContext.Session.GetString("Senha");
+                ViewBag.FotoDePerfil = HttpContext.Session.GetString("FotoDePerfil");
                 return View();
             }
             else
@@ -29,20 +34,21 @@ namespace Instadev.Controllers
         {
             List<Usuario> Usuarios = UsuarioModel.ExibirInfo();
             Usuario NovoUsuario = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
+            NovoUsuario.ModificarSenha(HttpContext.Session.GetString("Senha"));
             NovoUsuario.Nome = Form["Nome"];
             NovoUsuario.NomeDeUsuario = Form["NomeDeUsuario"];
             NovoUsuario.Email = Form["Email"];
-            if (NovoUsuario.Email == null)
+            if (NovoUsuario.Email.Length < 1)
             {
-                NovoUsuario.Email = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Email;
+                NovoUsuario.Email = HttpContext.Session.GetString("Email");
             }
-            if (NovoUsuario.Nome == null)
+            if (NovoUsuario.Nome.Length < 1)
             {
-                NovoUsuario.Nome = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Nome;
+                NovoUsuario.Nome = HttpContext.Session.GetString("Nome");
             }
-            if (NovoUsuario.NomeDeUsuario == null)
+            if (NovoUsuario.NomeDeUsuario.Length < 1)
             {
-                NovoUsuario.NomeDeUsuario = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).NomeDeUsuario;
+                NovoUsuario.NomeDeUsuario = HttpContext.Session.GetString("Username");
             }
             if (Form.Files.Count > 0)
             {
@@ -61,10 +67,11 @@ namespace Instadev.Controllers
             }
             else
             {
-                NovoUsuario.ImagemDePerfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+                NovoUsuario.ImagemDePerfil = HttpContext.Session.GetString("FotoDePerfil");
             }
             UsuarioModel.EditarPerfil(NovoUsuario);
-            return LocalRedirect("~/EditarPerfil/Index");
+
+            return LocalRedirect("~/Login/Logout");
         }
         public IActionResult DeletarUsuario()
         {

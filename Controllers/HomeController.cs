@@ -24,7 +24,7 @@ namespace Instadev.Controllers
         {
             if (HttpContext.Session.GetString("Username") != null)
             {
-                ViewBag.ImagemUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+                ViewBag.FotoDePerfil = HttpContext.Session.GetString("FotoDePerfil");
             }
             return LocalRedirect("~/Cadastro");
         }

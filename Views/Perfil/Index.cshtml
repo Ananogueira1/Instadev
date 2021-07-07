@@ -8,7 +8,7 @@
 </head>
 <body>
     <section class="container DadosPerfil">
-        <img src="/Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
+        <img src="../images/Usuarios/@ViewBag.FotoDePerfil" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
         <div class="DadosPerfilDireita">
             <h1>@ViewBag.Perfil.NomeDeUsuario</h1>
             <div class="PublicacaoSeguindoSeguidores">
@@ -18,7 +18,7 @@
             </div>
             <div class="NomeSair">
                 <span>@ViewBag.Perfil.Nome</span>
-                <a href="~/EditarPerfil">Editar Perfil</a>
+                <a asp-area="" asp-controller="EditarPerfil" asp-action="Index">Editar Perfil</a>
                 <a asp-area="" asp-controller="Perfil" asp-action="Sair">Sair</a>
             </div>
         </div>

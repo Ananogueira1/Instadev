@@ -6,27 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Instadev</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    @if (ViewData["Title"].ToString() == "Feed" || ViewData["Title"].ToString() == "Perfil" ||
-    ViewData["Title"].ToString() == "EditarPerfil")
+    @if (ViewData["Title"].ToString() == "Feed" || ViewData["Title"].ToString() == "Perfil" || ViewData["Title"].ToString() == "EditarPerfil")
     {
         <script src="https://kit.fontawesome.com/77a9a4e10d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/css/Header.css">
     }
 </head>
 
-@if (ViewData["Title"].ToString() == "Feed" || ViewData["Title"].ToString() == "Perfil" || ViewData["Title"].ToString()
-== "EditarPerfil")
+@if (ViewData["Title"].ToString() == "Feed" || ViewData["Title"].ToString() == "Perfil" || ViewData["Title"].ToString() == "EditarPerfil")
 {
     <header>
         <nav class="container NavHeader">
-            <a asp-area="" asp-controller="Feed" asp-action="Index"><img src="../images/Usuarios/@ViewBag.ImagemUsuarioLogado" alt="Logo_Instadev" height="27px"></a>
+            <a asp-area="" asp-controller="Feed" asp-action="Index"><img src="../IMG/Instadev.jpg" alt="Logo_Instadev" height="27px"></a>
             <input class="InputPesquisar" type="search" name="Pesquisar" placeholder="&#xf002 Pesquisar">
             <nav class="NavHeaderIcones">
-                <a asp-area="" asp-controller="Feed" asp-action="Index"><img src="../Img/Vector.png" alt="Home" height="21px" width="19.5px"></a>
+                <a asp-area="" asp-controller="Feed" asp-action="Index"><img src="~/Img/Vector.png" alt="Home" height="21px" width="19.5px"></a>
                 <img src="../Img/plane 1.png" alt="Mensagens">
                 <img src="../Img/compass 1.png" alt="Explorar" height="24px">
                 <img src="../img/Vector (1).png" alt="Curtidas" height="20px">
-                <a asp-area="" asp-controller="Perfil" asp-action="Index"><input class="ImagemPerfil" type="image" src="../Img/SemFoto.png" alt="Perfil" width="32px"></a>
+                <a asp-area="" asp-controller="Perfil" asp-action="Index"><input class="ImagemPerfil" type="image" src="../images/Usuarios/@ViewBag.FotoDePerfil" alt="Perfil" width="32px"></a>
             </nav>
         </nav>
     </header>

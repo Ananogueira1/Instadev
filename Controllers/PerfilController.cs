@@ -19,6 +19,7 @@ namespace Instadev.Controllers
                 List<Usuario> Usuarios = Usuario.ExibirInfo();
                 ViewBag.Perfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
                 ViewBag.post = p.LerTodas();
+                ViewBag.FotoDePerfil = HttpContext.Session.GetString("FotoDePerfil");
                 return View();
             }
             else
