@@ -15,13 +15,13 @@ namespace Instadev.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
-            // if (HttpContext.Session.GetString("IDUsuario") != null)
+            // if (HttpContext.Session.GetString("Username") != null)
             // {
                 Random aleatorio = new Random();
                 bool condicao = false;
                 List<Usuario> _usuarios = new List<Usuario>();
                 _usuarios = UsuarioModel.ExibirInfo();
-                _usuarios.RemoveAll(x => x.IdUsuario.ToString() == HttpContext.Session.GetString("IDUsuario"));
+                _usuarios.RemoveAll(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
                 do
                 {
                     if (_usuarios.Count <= 7)
@@ -47,8 +47,12 @@ namespace Instadev.Controllers
         [Route("Postar")]
         public IActionResult Postar(IFormCollection Form)
         {
+            List<Usuario> usuarios = new List<Usuario>();
             Post NovoPost = new Post();
-            // PostModel.IDUsuario = ViewBag.IDUsuario = HttpContext.Session.GetString("IDUsuario");
+            ViewBag.NomeUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Nome;
+            ViewBag.NomeDeUsuarioUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
+            ViewBag.ImagemDePerfilUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+            // PostModel.IDUsuario = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario;
             NovoPost.Legenda = Form["Legenda"];
             NovoPost.IDPost = PostModel.GerarID("Database/post.csv");
             if (Form.Files.Count > 0)
