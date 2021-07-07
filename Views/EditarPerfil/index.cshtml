@@ -16,7 +16,7 @@
             <label>Email</label>
         </section>
         <section class="FormularioColunaDois FormularioColuna">
-            <h2>@ViewBag.NomeDeUsuario</h2>
+            <h2>@ViewBag.UserName</h2>
             <label for="input_imagem">Alterar foto de perfil</label>
                 <form method="POST" action='@Url.Action("AlterarUsuario")' enctype="multipart/form-data">
                     <input id="input_imagem" type="file" accept="image/*" name="Imagem"/>

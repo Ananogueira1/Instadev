@@ -23,6 +23,7 @@ namespace Instadev.Controllers
                 List<Usuario> _usuarios = new List<Usuario>();
                 _usuarios = UsuarioModel.ExibirInfo();
                 _usuarios.RemoveAll(x => x.NomeDeUsuario == NomeDeUsuarioUsuarioLogado);
+                ViewBag.FotoDePerfil = HttpContext.Session.GetString("FotoDePerfil");
                 do
                 {
                     if (_usuarios.Count <= 7)
