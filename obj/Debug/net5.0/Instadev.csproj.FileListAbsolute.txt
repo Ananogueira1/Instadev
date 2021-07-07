@@ -43,3 +43,4 @@ C:\Users\Pedro\Desktop\Instadev\Instadev\obj\Debug\net5.0\Instadev.csproj.CopyCo
 C:\Users\Pedro\Desktop\Instadev\Instadev\obj\Debug\net5.0\Razor\Views\Cadastro\Index.cshtml.g.cs
 C:\Users\Pedro\Desktop\Instadev\Instadev\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\Pedro\Desktop\Instadev\Instadev\obj\Debug\net5.0\Razor\Views\Feed\Index.cshtml.g.cs
+C:\Users\Pedro\Desktop\Instadev\Instadev\obj\Debug\net5.0\Razor\Views\Perfil\Index.cshtml.g.cs

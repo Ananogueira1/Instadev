@@ -27,7 +27,6 @@ namespace Instadev.Controllers
             return View();
         }
 
-<<<<<<< HEAD
         [Route("Cadastrar")]
         public IActionResult Cadastrar(IFormCollection form)
         {
@@ -38,14 +37,6 @@ namespace Instadev.Controllers
             novoUsuario.NomeDeUsuario = form["Nome de Usuario"];
             novoUsuario.Email = form["Email"];
             novoUsuario.ModificarSenha(form["Senha"]);
-=======
-                novoUsuario.ImagemDePerfil = form["Imagem de perfil"];
-                novoUsuario.IdUsuario = usuarioModel.GerarID("Database/Usuario.csv");
-                novoUsuario.Nome = form["Nome"];
-                novoUsuario.NomeDeUsuario = form["Nome de Usuário"];
-                novoUsuario.Email = form["Email"];
-                novoUsuario.ModificarSenha(form["Senha"]);
->>>>>>> cb324e578f62c58c78fe10dc903b93e4ec581f52
 
             usuarioModel.Cadastrar(novoUsuario);
 

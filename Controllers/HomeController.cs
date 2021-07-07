@@ -21,23 +21,13 @@ namespace Instadev.Controllers
 
         public IActionResult Index()
         {
-<<<<<<< HEAD
             return LocalRedirect("~/Cadastro");
-=======
-            // ViewBag.Username = HttpContext.Session.GetString("Username");
-
-            return View();
->>>>>>> cb324e578f62c58c78fe10dc903b93e4ec581f52
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> cb324e578f62c58c78fe10dc903b93e4ec581f52
     }
 }
 
