@@ -31,7 +31,7 @@ namespace Instadev.Controllers
             usuarioModel.Cadastrar(novoUsuario);
             ViewBag.Usuarios = usuarioModel.ExibirInfo();
 
-            return LocalRedirect("~/Cadastro");
+            return LocalRedirect("~/Login/Index");
         }
     }
 }

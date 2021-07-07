@@ -27,13 +27,13 @@ namespace Instadev.Controllers
             List<string> UsuariosCSV = UsuarioModel.LerTodasLinhasCSV("Database/Usuario.csv");
             var Logado = UsuariosCSV.Find(
                 x =>
-                x.Split(";")[3] == Form["Email"] &&
-                x.Split(";")[4] == Form["Senha"]
+                x.Split(";")[4] == Form["Email"] &&
+                x.Split(";")[5] == Form["Senha"]
             );
 
             if (Logado != null)
             {
-                HttpContext.Session.SetString("Username", Logado.Split(";")[1]);
+                HttpContext.Session.SetString("Username", Logado.Split(";")[3]);
 
                 return LocalRedirect("~/");
             }

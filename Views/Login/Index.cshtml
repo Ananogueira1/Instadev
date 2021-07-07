@@ -27,7 +27,7 @@
     <span><a class="esqueceu_sua_senha" href="Esqueceu sua senha?">Esqueceu sua senha?</a></span>
 </div>
 <div class="grupo1">
-    <span class="grupo_texto1">Não tem uma conta? <<a asp-area="" asp-controller="Cadastro" asp-action="Index">Cadastre-se</a>
+    <span class="grupo_texto1">Não tem uma conta? <a asp-area="" asp-controller="Home" asp-action="Index">Cadastre-se</a>
     </span>
 </div>
 <div class="tenha_o_app_txt">
@@ -42,3 +42,5 @@
             src="../img/google_play 1.png" alt="Link de redirecionamento para a Play Store"></a>
 
 </div>
+
+<div class="erro">@TempData.Peek("Mensagem")</div> 

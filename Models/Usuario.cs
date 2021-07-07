@@ -33,7 +33,7 @@ namespace Instadev.Models
 
         private string PrepararLinha(Usuario u)
         {
-            return $"{u.ImagemDePerfil};{u.IdUsuario};{u.Nome};{u.NomeDeUsuario};{u.Email};{u.Senha};{u.PrepararIdsPosts()}";
+        return $"{u.IdUsuario};{u.ImagemDePerfil};{u.Nome};{u.NomeDeUsuario};{u.Email};{u.Senha}";
         }
 
         public void Cadastrar(Usuario u)
@@ -52,8 +52,8 @@ namespace Instadev.Models
                 string[] linha = item.Split(";");
 
                 Usuario usuario = new Usuario();
-                usuario.ImagemDePerfil = linha[0];
-                usuario.IdUsuario = int.Parse(linha[1]);
+                usuario.ImagemDePerfil = linha[1];
+                usuario.IdUsuario = int.Parse(linha[0]);
                 usuario.Nome = linha[2];
                 usuario.NomeDeUsuario = linha[3];
                 usuario.Email = linha[4];
@@ -78,20 +78,20 @@ namespace Instadev.Models
             linhas.RemoveAll(x => x.Split(";")[0] == IdUsuario.ToString());
             ReescreverCSV(CAMINHO, linhas);
         }
-        public string PrepararIdsPosts()
-        {
-            List<string> Ids = new List<string>();
-            foreach (var item in IdsPosts)
-            {
-                string Id;
-                Id = $"{item.ToString()},";
-                Ids.Add(Id);
-            }
+        // public string PrepararIdsPosts()
+        // {
+        //     List<string> Ids = new List<string>();
+        //     foreach (var item in IdsPosts)
+        //     {
+        //         string Id;
+        //         Id = $"{item.ToString()},";
+        //         Ids.Add(Id);
+        //     }
             
-            string IdsPreparados = string.Join("", Ids);
+        //     string IdsPreparados = string.Join("", Ids);
             
-            return IdsPreparados;
-        }
+        //     return IdsPreparados;
+        // }
         public void ModificarSenha(string _senha){
             Senha = _senha;
         }

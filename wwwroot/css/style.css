@@ -11,6 +11,9 @@ body {
     background-color: #FAFAFA;
     ;
 }
+.erro{
+    color: darkred;
+} 
 
 main {
     margin-top: 2%;
