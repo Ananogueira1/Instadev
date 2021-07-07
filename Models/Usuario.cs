@@ -68,7 +68,7 @@ namespace Instadev.Models
         public void DeletarPerfil(int id)
         {
             List<string> linhas = LerTodasLinhasCSV(CAMINHO);
-            linhas.RemoveAll(x => x.Split(";")[0] == IdUsuario.ToString());
+            linhas.RemoveAll(x => x.Split(";")[0] == id.ToString());
             ReescreverCSV(CAMINHO, linhas);
         }
         // public string PrepararIdsPosts()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Instadev.Models;
@@ -11,6 +12,11 @@ namespace Instadev.Controllers
     public class EditarPerfilController : Controller
     {
         Usuario UsuarioModel = new Usuario();
+        Post PostModel = new Post();
+
+        [TempData]
+        public string Mensagem { get; set; }
+
         [Route("Index")]
         public IActionResult Index()
         {
@@ -32,6 +38,8 @@ namespace Instadev.Controllers
         [Route("AlterarUsuario")]
         public IActionResult AlterarUsuario(IFormCollection Form)
         {
+            bool EmailCerto = true;
+            bool NomeDeUsuarioCerto = true;
             List<Usuario> Usuarios = UsuarioModel.ExibirInfo();
             Usuario NovoUsuario = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
             NovoUsuario.ModificarSenha(HttpContext.Session.GetString("Senha"));
@@ -69,14 +77,55 @@ namespace Instadev.Controllers
             {
                 NovoUsuario.ImagemDePerfil = HttpContext.Session.GetString("FotoDePerfil");
             }
-            UsuarioModel.EditarPerfil(NovoUsuario);
-
-            return LocalRedirect("~/Login/Logout");
+            foreach (var item in Usuarios)
+            {
+                if (item.Email == NovoUsuario.Email)
+                {
+                    if (item.IdUsuario != NovoUsuario.IdUsuario)
+                    {
+                        EmailCerto = false;
+                    }
+                }
+                if (item.NomeDeUsuario == NovoUsuario.NomeDeUsuario)
+                {
+                    if (item.IdUsuario != NovoUsuario.IdUsuario)
+                    {
+                        NomeDeUsuarioCerto = false;
+                    }
+                }
+            }
+            if (EmailCerto == true && NomeDeUsuarioCerto == true)
+            {
+                UsuarioModel.EditarPerfil(NovoUsuario);
+                return LocalRedirect("~/Login/Logout");
+            }
+            else if (EmailCerto == false && NomeDeUsuarioCerto == true)
+            {
+                Mensagem = "Conflito com banco de dados: Email já existente";
+                return LocalRedirect("~/EditarPerfil/Index");
+            }
+            else if (EmailCerto == true && NomeDeUsuarioCerto == false)
+            {
+                Mensagem = "Conflito com banco de dados: Nome de usuário já existente";
+                return LocalRedirect("~/EditarPerfil/Index");
+            }
+            else
+            {
+                Mensagem = "Conflito com banco de dados: Email e nome de usuário já existentes";
+                return LocalRedirect("~/EditarPerfil/Index");
+            }
         }
+        [Route("DeletarUsuario")]
         public IActionResult DeletarUsuario()
         {
-            UsuarioModel.DeletarPerfil(UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario);
+            UsuarioModel.DeletarPerfil(int.Parse(HttpContext.Session.GetString("IdUsuario")));
+            PostModel.Deletar(int.Parse(HttpContext.Session.GetString("IdUsuario")));
             HttpContext.Session.Remove("Username");
+            HttpContext.Session.Remove("IdUsuario");
+            HttpContext.Session.Remove("Nome");
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Remove("Senha");
+            HttpContext.Session.Remove("FotoDePerfil");
             return LocalRedirect("~/Home/Index");
         }
     }

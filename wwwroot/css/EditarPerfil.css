@@ -7,6 +7,11 @@
 body{
     background-color: #FAFAFA;
 }
+.erro{
+    color: darkred;
+    display: flex;
+    justify-content: center;
+} 
 .container_grid{
     width: 935px;
     margin: 0 auto;
