@@ -15,8 +15,8 @@ namespace Instadev.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
-            // if (HttpContext.Session.GetString("Username") != null)
-            // {
+            if (HttpContext.Session.GetString("Username") != null)
+            {
                 Random aleatorio = new Random();
                 bool condicao = false;
                 List<Usuario> _usuarios = new List<Usuario>();
@@ -38,11 +38,11 @@ namespace Instadev.Controllers
                 ViewBag.Usuarios = UsuarioModel.ExibirInfo();
                 ViewBag.Posts = PostModel.LerTodas();
                 return View();
-            // }
-            // else
-            // {
-            //     return LocalRedirect("~/Cadastro/Index");
-            // }
+            }
+            else
+            {
+                return LocalRedirect("~/Cadastro/Index");
+            }
         }
         [Route("Postar")]
         public IActionResult Postar(IFormCollection Form)
@@ -52,7 +52,7 @@ namespace Instadev.Controllers
             ViewBag.NomeUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).Nome;
             ViewBag.NomeDeUsuarioUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
             ViewBag.ImagemDePerfilUsuarioLogado = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
-            // PostModel.IDUsuario = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario;
+            PostModel.IDUsuario = usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario;
             NovoPost.Legenda = Form["Legenda"];
             NovoPost.IDPost = PostModel.GerarID("Database/post.csv");
             if (Form.Files.Count > 0)
