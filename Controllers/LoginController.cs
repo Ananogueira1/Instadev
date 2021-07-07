@@ -35,7 +35,7 @@ namespace Instadev.Controllers
             {
                 HttpContext.Session.SetString("Username", Logado.Split(";")[3]);
 
-                return LocalRedirect("~/");
+                return LocalRedirect("~/Feed/Index");
             }
             else
             {

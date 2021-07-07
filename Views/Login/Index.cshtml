@@ -3,19 +3,17 @@
 }
 
 <head>
-<link rel="stylesheet" href="~/css/style.css"/>
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 
 
 <div class="grupo">
     <img class="logo" src="../img/Logo Instadev.png" alt="Logo">
 
-    <form class="Form_Login" action="">
-
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
-        <button class="btn" type="submit">Entrar</button>
-
+    <form class="Form_Login" method="POST" action='@Url.Action("Logar")' enctype="multipart/form-data"> 
+            <input type="email" placeholder="Email" name="Email"> 
+            <input type="password" placeholder="Senha" name="Senha">
+            <button class="btn" type="submit">Entrar</button> 
     </form>
 
     <div class="grupo_ou">
@@ -27,7 +25,8 @@
     <span><a class="esqueceu_sua_senha" href="Esqueceu sua senha?">Esqueceu sua senha?</a></span>
 </div>
 <div class="grupo1">
-    <span class="grupo_texto1">Não tem uma conta? <a asp-area="" asp-controller="Home" asp-action="Index">Cadastre-se</a>
+    <span class="grupo_texto1">Não tem uma conta? <a asp-area="" asp-controller="Home"
+            asp-action="Index">Cadastre-se</a>
     </span>
 </div>
 <div class="tenha_o_app_txt">
@@ -43,4 +42,4 @@
 
 </div>
 
-<div class="erro">@TempData.Peek("Mensagem")</div> 
+<div class="erro">@TempData.Peek("Mensagem")</div>
