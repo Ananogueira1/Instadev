@@ -1,0 +1,112 @@
+@{
+    ViewData["Title"] = "Feed";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Feed.css">
+    <script src="https://kit.fontawesome.com/77a9a4e10d.js" crossorigin="anonymous"></script>
+</head>
+<div class="alinhamento_aside_main container_grid">
+    <div class="Aside">
+        <a class="container_aside" asp-area="" asp-controller="Perfil" asp-action="Index">
+            <img src="">
+            @* <img src="@ViewBag.ImagemDePerfilUsuarioLogado"> *@
+            <div class="texto_aside">
+                <h1>nome de usuário</h1>
+                @* <h1>@ViewBag.NomeDeUsuarioUsuarioLogado</h1> *@
+                <h2>nome</h2>
+                @* <h2>@ViewBag.NomeUsuarioLogado</h2> *@
+            </div>
+        </a>
+    </div>
+    <div class="Main">
+        <section class="Usuarios">
+            <div class="container_usuarios container_grid  container_grid_main">
+                @{
+                    if (ViewBag.Usuarios.Count >= 1)
+                    {
+                        foreach (var item in ViewBag.UsuariosExpostos)
+                        {
+                            <div class="box_usuarios">
+                                <img class="user_usuarios" src="@item.ImagemDePerfil">
+                                <span>@item.NomeDeUsuario</span>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="texto_triste">Só você de usuário? Então chame seus amigos!</p>
+                    }
+                }
+            </div>
+        </section>
+        <section class="Postar">
+            <div class="container_postar container_grid_main container_grid">
+                <div class="box_postar_usuario">
+                    <img src="" />
+                    <span>Postar</span>
+                </div>
+                <form class="formulario_postar" method="POST" action='@Url.Action("Postar")'
+                    enctype="multipart/form-data">
+                    <input name="Legenda" class="input_formulario_postar_descricao"
+                        placeholder="Digite a descrição da imagem..." type="text" required />
+                    <label for="input_imagem_postar">Escolha a imagem</label>
+                    <input name="Imagem" id="input_imagem_postar" class="input_formulario_postar_imagem"
+                        accept="image/*" type="file" required />
+                    <input class="input_formulario_postar_submit" value="Postar" type="submit" />
+                </form>
+            </div>
+        </section>
+        <section class="Posts">
+            @{
+                if (ViewBag.Posts.Count >= 1)
+                {
+                    <div class="container_posts container_grid container_grid_main">
+                        @{
+                            foreach (var item in ViewBag.Posts)
+                            {
+                                <div class="box_post">
+                                    <div class="post_usuario">
+                                        <img src="">
+                                        <div class="post_usuario_texto">
+                                            <span class="post_usuario_texto_nick">Nome de usuário</span>
+                                            @* <span class="post_usuario_texto_nick">@{
+                                                foreach (var item2 in ViewBag.Usuarios)
+                                                {
+
+                                                if (item2.IdUsuario = item.IDUsuario)
+                                                {
+                                                @item2.NomeDeUsuario;
+                                                }
+                                                }
+                                                }
+                                                </span> *@
+                                            <p class="post_usuario_texto_local">@item.Legenda</p>
+                                        </div>
+                                    </div>
+                                    <img class="img_post" src="../images/Posts/@item.Imagem">
+                                    <div class="post_interacoes">
+                                        <i class="far fa-heart post_interacoes_icon"></i>
+                                        <i class="far fa-comment post_interacoes_icon"></i>
+                                        <input class="input_comentar" type="text" placeholder="Comentar...">
+                                    </div>
+                                    <div class="post_numlikes_comentarios">
+                                        <span>INTLikes</span>
+                                        <div class="comentarios_texto">
+                                            <span>Nome de usuário</span>
+                                            <p>comentário</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="texto_triste">Não há posts ainda :( Seja o primeiro a postar!!!</p>
+                }
+            }
+        </section>
+    </div>
+</div>
