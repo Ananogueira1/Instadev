@@ -12,6 +12,9 @@ namespace Instadev.Controllers
     {
         Usuario usuarioModel = new Usuario();
 
+        [TempData]
+        public string Mensagem { get; set; }
+
         public IActionResult Index()
         {
             // List<Usuario> UsuariosExistentes = usuarioModel.ExibirInfo();
@@ -30,6 +33,9 @@ namespace Instadev.Controllers
         [Route("Cadastrar")]
         public IActionResult Cadastrar(IFormCollection form)
         {
+            bool EmailCerto = true;
+            bool NomeDeUsuarioCerto = true;
+            List<Usuario> usuarios = usuarioModel.ExibirInfo();
             Usuario novoUsuario = new Usuario(); 
             novoUsuario.ImagemDePerfil = "semfoto.png";
             novoUsuario.IdUsuario = usuarioModel.GerarID("Database/Usuario.csv"); 
@@ -38,9 +44,39 @@ namespace Instadev.Controllers
             novoUsuario.Email = form["Email"];
             novoUsuario.ModificarSenha(form["Senha"]);
 
-            usuarioModel.Cadastrar(novoUsuario);
+            foreach (var item in usuarios)
+            {
+                if (item.Email == novoUsuario.Email)
+                {
+                    EmailCerto = false;
+                }
+                if (item.NomeDeUsuario == novoUsuario.NomeDeUsuario)
+                {
+                    NomeDeUsuarioCerto = false;
+                }
+            }
+            if (EmailCerto == true && NomeDeUsuarioCerto == true)
+            {
+                usuarioModel.Cadastrar(novoUsuario);
+                return LocalRedirect("~/Login/Index");
+                
+            }
+            else if (EmailCerto == false && NomeDeUsuarioCerto == true)
+            {
+                Mensagem = "Conflito com banco de dados: Email já existente";
+                return LocalRedirect("~/Home/Index");
+            }
+            else if (EmailCerto == true && NomeDeUsuarioCerto == false)
+            {
+                Mensagem = "Conflito com banco de dados: Nome de usuário já existente";
+                return LocalRedirect("~/Home/Index");
+            }
+            else
+            {
+                Mensagem = "Conflito com banco de dados: Email e nome de usuário já existentes";
+                return LocalRedirect("~/Home/Index");
+            }
 
-            return LocalRedirect("~/Login/Index");
         }
     }
 }

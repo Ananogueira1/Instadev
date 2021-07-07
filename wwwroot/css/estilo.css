@@ -10,6 +10,12 @@ body {
     background-color: #FAFAFA;
     ;
 }
+.erro{
+    color: darkred;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} 
 
 main {
     margin-top: 20px;
