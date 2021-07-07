@@ -3,68 +3,74 @@
 @{
     ViewData["Title"] = "Perfil";
 }
+<head>
+    <link rel="stylesheet" href="~/css/Perfil_CSS.css" />
+</head>
 <body>
-    <link rel="stylesheet" href="~/css/Perfil_CSS.css"/>
-<section class="container DadosPerfil">
-    <img src="/Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
-    <div class="DadosPerfilDireita">
-        <h1>@ViewBag.Perfil.NomeDeUsuario</h1>
-        <div class="PublicacaoSeguindoSeguidores">
-            <span>X publicações</span>
-            <span>Y seguindo</span>
-            <span>Z seguidores</span>
-        </div>
-        <div class="NomeSair">
-            <span>@ViewBag.Perfil.Nome</span>
-            <a href="~/EditarPerfil">Editar Perfil</a>
-            <a asp-area="" asp-controller="Perfil" asp-action="Sair">Sair</a>
-        </div>
-    </div>
-</section>
-<section class="container PostsPerfil">
-    <div class="Publicações">
-        <img src="/Img/image 1.png" alt="Ícone publicações" width="16px" height="14px">
-        <span>publicações</span>
-    </div>
-    @foreach (Post p in ViewBag.post) {
-        if (p.IDUsuario == ViewBag.Perfil.IdUsuario)
-        {
-    <div class="Postagem">
-        <img src="/Img/@p.Imagem" alt="Foto do post" width="430px" height="404px">
-        <div class="DadosDaPostagem">
-            <div class="DadosCurtidas">
-                <div class="DadosPerfilPost">
-                    <img src="/Img/@ViewBag.Perfil.ImagemDePerfil" alt="Foto de perfil">
-                    <!-- Na foto é necessário a foto de perfil do usuario logado -->
-                    <div class="NomeLocal">
-                        <h1>@ViewBag.Perfil.Nome</h1> <!-- No nome é necessário o nome perfil do usuario logado -->
-                        <h2>local da foto</h2>
-                    </div>
-                </div>
-                <div>
-                    <div class="CurtirComentar">
-                        <img src="/Img/Vector1.png" alt="Curtir">
-                        <img src="/Img/Vector (3).png" alt="Comentar">
-                    </div>
-                    <span class="NumeroCurtidas">X Curtidas</span>
-                </div>
+    <section class="container DadosPerfil">
+        <img src="/Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
+        <div class="DadosPerfilDireita">
+            <h1>@ViewBag.Perfil.NomeDeUsuario</h1>
+            <div class="PublicacaoSeguindoSeguidores">
+                <span>X publicações</span>
+                <span>Y seguindo</span>
+                <span>Z seguidores</span>
             </div>
-            <section class="Comentarios">
-                @* @foreach (var Comentários in ViewBag.comentarios)
-                    { *@
-                <div class="CadaComentario">
-                    <div class="UserComentario">
-                        <span>UserRandom</span>
-                        <p>Comentário aleatório</p>
-                    </div>
-                    <img src="/Img/Vector1.png" alt="Curtir comentário">
-                </div>
-                @* } *@
-            </section>
-            <span class="VerComentarios">Ver todos os comentários</span>
+            <div class="NomeSair">
+                <span>@ViewBag.Perfil.Nome</span>
+                <a href="~/EditarPerfil">Editar Perfil</a>
+                <a asp-area="" asp-controller="Perfil" asp-action="Sair">Sair</a>
+            </div>
         </div>
-    </div>
-        }
-    }
-</section>
+    </section>
+    <section class="container PostsPerfil">
+        <div class="Publicações">
+            <img src="/Img/image 1.png" alt="Ícone publicações" width="16px" height="14px">
+            <span>publicações</span>
+        </div>
+        <div class="PostsUsuario">
+            @foreach (Post p in ViewBag.post)
+            {
+                if (p.IDUsuario == ViewBag.Perfil.IdUsuario)
+                {
+                    <div class="Postagem">
+                        <img src="../images/Posts/@p.Imagem" alt="Foto do post" width="430px" height="404px">
+                        <div class="DadosDaPostagem">
+                            <div class="DadosCurtidas">
+                                <div class="DadosPerfilPost">
+                                    <img src="/Img/@ViewBag.Perfil.ImagemDePerfil" alt="Foto de perfil">
+                                    <!-- Na foto é necessário a foto de perfil do usuario logado -->
+                            <div class="NomeLocal">
+                                        <h1>@ViewBag.Perfil.Nome</h1>
+                                        <!-- No nome é necessário o nome perfil do usuario logado -->
+                                <h2>@p.Legenda</h2>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="CurtirComentar">
+                                        <img src="/Img/Vector1.png" alt="Curtir">
+                                        <img src="/Img/Vector (3).png" alt="Comentar">
+                                    </div>
+                                    <span class="NumeroCurtidas">X Curtidas</span>
+                                </div>
+                            </div>
+                            <section class="Comentarios">
+                                @* @foreach (var Comentários in ViewBag.comentarios)
+                                    { *@
+                                <div class="CadaComentario">
+                                    <div class="UserComentario">
+                                        <span>UserRandom</span>
+                                        <p>Comentário aleatório</p>
+                                    </div>
+                                    <img src="/Img/Vector1.png" alt="Curtir comentário">
+                                </div>
+                                @* } *@
+                            </section>
+                            <span class="VerComentarios">Ver todos os comentários</span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </section>
 </body>

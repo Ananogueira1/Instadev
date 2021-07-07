@@ -17,20 +17,20 @@ namespace Instadev.Controllers
             if (HttpContext.Session.GetString("Username") != null)
             {
                 List<Usuario> Usuarios = Usuario.ExibirInfo();
-                ViewBag.Perfil = Usuarios.Find(x => x.NomeDeUsuario == ViewBag.Username);
+                ViewBag.Perfil = Usuarios.Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username"));
                 ViewBag.post = p.LerTodas();
                 return View();
             }
             else
             {
-                return LocalRedirect("~/Cadastrar/Index");
+                return LocalRedirect("~/Home/Index");
             }
         }
 
         [Route("Sair")]
         public IActionResult Sair()
         {
-            HttpContext.Session.Remove("_UserName");
+            HttpContext.Session.Remove("Username");
             return LocalRedirect("~/");
         }
     }

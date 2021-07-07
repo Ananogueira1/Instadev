@@ -47,7 +47,7 @@ namespace Instadev.Controllers
             }
             else
             {
-                return LocalRedirect("~/Cadastro/Index");
+                return LocalRedirect("~/Home/Index");
             }
         }
         [Route("Postar")]

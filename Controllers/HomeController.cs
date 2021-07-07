@@ -12,6 +12,7 @@ namespace Instadev.Controllers
 {
     public class HomeController : Controller
     {
+        Usuario UsuarioModel = new Usuario();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -21,6 +22,10 @@ namespace Instadev.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Username") != null)
+            {
+                ViewBag.ImagemUsuarioLogado = UsuarioModel.ExibirInfo().Find(x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).ImagemDePerfil;
+            }
             return LocalRedirect("~/Cadastro");
         }
 
@@ -30,4 +35,3 @@ namespace Instadev.Controllers
         }
     }
 }
-

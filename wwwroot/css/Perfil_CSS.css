@@ -13,6 +13,10 @@ body {
 .erro{
     color:#FF0000;
 }
+.PostsUsuario{
+    display: flex;
+    flex-direction: column-reverse;
+}
 .DadosPerfil{
     display: flex;
     justify-content: space-between;
