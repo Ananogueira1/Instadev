@@ -39,3 +39,5 @@ C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net
 C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net5.0\Instadev.Views.pdb
 C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net5.0\Instadev.genruntimeconfig.cache
 C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net5.0\Instadev.csproj.CopyComplete
+C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net5.0\Razor\Views\Perfil\Index.cshtml.g.cs
+C:\Users\Familia Nogueira\.omnisharp\Desktop\InstaDevBack\Instadev\obj\Debug\net5.0\Razor\Views\Shared\Usuario\Index.cshtml.g.cs

@@ -2,28 +2,43 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="titulo_pagina">
-    <h1>@ViewData["Title"]</h1>
+<head>
+<link rel="stylesheet" href="~/css/style.css"/>
+</head>
+
+
+<div class="grupo">
+    <img class="logo" src="../img/Logo Instadev.png" alt="Logo">
+
+    <form class="Form_Login" action="">
+
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Senha">
+        <button class="btn" type="submit">Entrar</button>
+
+    </form>
+
+    <div class="grupo_ou">
+        <hr class="grupo_hr">
+        <p class="ou"> OU </p>
+        <hr class="grupo_hr">
+    </div>
+
+    <span><a class="esqueceu_sua_senha" href="Esqueceu sua senha?">Esqueceu sua senha?</a></span>
+</div>
+<div class="grupo1">
+    <span class="grupo_texto1">Não tem uma conta? <<a asp-area="" asp-controller="Cadastro" asp-action="Index">Cadastre-se</a>
+    </span>
+</div>
+<div class="tenha_o_app_txt">
+    <p>Obtenha o aplicativo</p>
 </div>
 
-<form method="POST" action='@Url.Action("Logar")' class="cadastro">
+<div class="img_link">
+    <a href="https://apps.apple.com/br/app/instagram/id389801252"> <img src="../img/app_store 1.png"
+            alt="Link de redirecionamento para a App Store"></a>
+    <div class="espaço_entre_img"></div>
+    <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=pt_BR&gl=US"> <img
+            src="../img/google_play 1.png" alt="Link de redirecionamento para a Play Store"></a>
 
-    <div class="campo">
-        <label for="">Email</label>
-        <input type="text" name="Email" required>
-    </div>
-
-    <div class="campo">
-        <label for="">Nome</label>
-        <input type="text" name="Nome" required>
-    </div>
-
-    <div class="campo">
-        <label for="">Senha</label>
-        <input type="password" name="Senha" required>
-    </div>
-
-    <div class="erro">@TempData.Peek("Mensagem")</div>
-
-    <button class="gradient btn" type="submit">Entrar</button>
-</form>
+</div>
