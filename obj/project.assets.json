@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Familia Nogueira\\.nuget\\packages\\": {}
+    "C:\\Users\\T-Gamer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj",
+      "projectUniqueName": "C:\\Users\\T-Gamer\\Desktop\\Instadev\\Instadev.csproj",
       "projectName": "Instadev",
-      "projectPath": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\Instadev.csproj",
-      "packagesPath": "C:\\Users\\Familia Nogueira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Familia Nogueira\\.omnisharp\\Desktop\\InstaDevBack\\Instadev\\obj\\",
+      "projectPath": "C:\\Users\\T-Gamer\\Desktop\\Instadev\\Instadev.csproj",
+      "packagesPath": "C:\\Users\\T-Gamer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\T-Gamer\\Desktop\\Instadev\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Familia Nogueira\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\T-Gamer\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,3 +1,5 @@
+@using Microsoft.AspNetCore.Http
+@model Views_Perfil_Index
 @{
     ViewData["Title"] = "Perfil";
 }
@@ -6,14 +8,14 @@
 <section class="container DadosPerfil">
     <img src="/Img/SemFoto.png" class="FotoDePerfil" width="152" height="154" alt="Foto de perfil">
     <div class="DadosPerfilDireita">
-        <h1>Username do perfil</h1>
+        <h1>@ViewBag.Perfil.NomeDeUsuario</h1>
         <div class="PublicacaoSeguindoSeguidores">
             <span>X publicações</span>
             <span>Y seguindo</span>
             <span>Z seguidores</span>
         </div>
         <div class="NomeSair">
-            <span>Nome do perfil</span>
+            <span>@ViewBag.Perfil.Nome</span>
             <a href="~/EditarPerfil">Editar Perfil</a>
             <a asp-area="" asp-controller="Perfil" asp-action="Sair">Sair</a>
         </div>
@@ -24,17 +26,18 @@
         <img src="/Img/image 1.png" alt="Ícone publicações" width="16px" height="14px">
         <span>publicações</span>
     </div>
-    @* @foreach (Post p in ViewBag.post)
-        { *@
+    @foreach (Post p in ViewBag.post) {
+        if (p.IDUsuario == ViewBag.Perfil.IdUsuario)
+        {
     <div class="Postagem">
-        <img src="/Img/SemFoto.png" alt="Foto do post" width="430px" height="404px">
+        <img src="/Img/@p.Imagem" alt="Foto do post" width="430px" height="404px">
         <div class="DadosDaPostagem">
             <div class="DadosCurtidas">
                 <div class="DadosPerfilPost">
-                    <img src="/Img/SemFoto.png" alt="Foto de perfil">
+                    <img src="/Img/@ViewBag.Perfil.ImagemDePerfil" alt="Foto de perfil">
                     <!-- Na foto é necessário a foto de perfil do usuario logado -->
                     <div class="NomeLocal">
-                        <h1>Nome do perfil</h1> <!-- No nome é necessário o nome perfil do usuario logado -->
+                        <h1>@ViewBag.Perfil.Nome</h1> <!-- No nome é necessário o nome perfil do usuario logado -->
                         <h2>local da foto</h2>
                     </div>
                 </div>
@@ -61,6 +64,7 @@
             <span class="VerComentarios">Ver todos os comentários</span>
         </div>
     </div>
+        }
     }
 </section>
 </body>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Instadev.Models;
 using Microsoft.AspNetCore.Http;
@@ -25,18 +26,20 @@ namespace Instadev.Controllers
 
             NovoPost.Legenda = form["Legenda"];
             // NovoPost.IDUsuario = usuarioModel.IdUsuario;
+            List<Usuario> Usuarios = usuarioModel.ExibirInfo();
+            NovoPost.IDUsuario = Usuarios.Find( x => x.NomeDeUsuario == HttpContext.Session.GetString("Username")).IdUsuario;
 
             if (form.Files.Count > 0)
             {
                 var file = form.Files[0];
-                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post"); //INCOMPLETO
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post"); 
 
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
                 }
 
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post", folder, file.FileName); //INCOMPLETO
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Img/Post", folder, file.FileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
