@@ -83,7 +83,7 @@
                                                     }
                                                 }
                                             </span>
-                                            <p class="post_usuario_texto_local">@post.Legenda</p>
+                                            <p class="post_usuario_texto_local">Virtualmente estou aqui, no Instadev!</p>
                                         </div>
                                     </div>
                                     <img class="img_post" src="../images/Posts/@post.Imagem">
@@ -95,8 +95,18 @@
                                     <div class="post_numlikes_comentarios">
                                         <span>INTLikes</span>
                                         <div class="comentarios_texto">
-                                            <span>Nome de usuário</span>
-                                            <p>comentário</p>
+                                            <span>
+                                                @{
+                                                foreach (var item2 in ViewBag.Usuarios)
+                                                {
+                                                    if (post.IDUsuario.ToString() == item2.IdUsuario.ToString())
+                                                        {
+                                                            @item2.NomeDeUsuario;
+                                                        }
+                                                }
+                                            }
+                                            </span>
+                                            <p>@post.Legenda</p>
                                         </div>
                                     </div>
                                 </div>

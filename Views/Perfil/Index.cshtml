@@ -43,7 +43,7 @@
                             <div class="NomeLocal">
                                         <h1>@ViewBag.Perfil.Nome</h1>
                                         <!-- No nome é necessário o nome perfil do usuario logado -->
-                                <h2>@p.Legenda</h2>
+                                <h2>Virtualmente estou aqui, no Instadev!</h2>
                                     </div>
                                 </div>
                                 <div>
@@ -59,8 +59,8 @@
                                     { *@
                                 <div class="CadaComentario">
                                     <div class="UserComentario">
-                                        <span>UserRandom</span>
-                                        <p>Comentário aleatório</p>
+                                        <span>@ViewBag.Perfil.NomeDeUsuario</span>
+                                        <p>@p.Legenda</p>
                                     </div>
                                     <img src="/Img/Vector1.png" alt="Curtir comentário">
                                 </div>
