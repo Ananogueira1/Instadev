@@ -69,6 +69,7 @@ header{
     margin-left: 32px;
     float: right;
     width: auto;
+    margin-top: 15.5px;
 }
 .container_aside{
     display: flex;
@@ -126,6 +127,7 @@ header{
     margin-bottom: 38px;
 }
 .container_usuarios{
+    height: 101px;
     align-items: center;
     justify-content: space-evenly;
     padding: 16px 16px;
