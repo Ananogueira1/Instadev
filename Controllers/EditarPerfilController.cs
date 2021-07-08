@@ -13,6 +13,7 @@ namespace Instadev.Controllers
     {
         Usuario UsuarioModel = new Usuario();
         Post PostModel = new Post();
+        Comentario ComentarioModel = new Comentario();
 
         [TempData]
         public string Mensagem { get; set; }
@@ -118,6 +119,25 @@ namespace Instadev.Controllers
         [Route("DeletarUsuario")]
         public IActionResult DeletarUsuario()
         {
+            List<Comentario> comentarios = ComentarioModel.LerTodas();
+            List<Post> posts = PostModel.LerTodas();
+            foreach (Post item in posts)
+            {
+                foreach (Comentario item2 in comentarios)
+                {
+                    if (item2.IDUsuario == int.Parse(HttpContext.Session.GetString("IdUsuario")))
+                    {
+                        ComentarioModel.Deletar(item2.IDComentario);
+                    }
+                    else if (item.IDUsuario == int.Parse(HttpContext.Session.GetString("IdUsuario")))
+                    {
+                        if (item2.IDPost.ToString() == item.IDPost.ToString())
+                        {
+                            ComentarioModel.Deletar(item2.IDComentario);
+                        }
+                    }
+                }
+            }
             UsuarioModel.DeletarPerfil(int.Parse(HttpContext.Session.GetString("IdUsuario")));
             PostModel.Deletar(int.Parse(HttpContext.Session.GetString("IdUsuario")));
             HttpContext.Session.Remove("Username");

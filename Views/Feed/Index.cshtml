@@ -46,7 +46,7 @@
                 <form class="formulario_postar" method="POST" action='@Url.Action("Postar")'
                     enctype="multipart/form-data">
                     <input name="Legenda" class="input_formulario_postar_descricao"
-                        placeholder="Digite a descrição da imagem..." type="text" required />
+                        placeholder="Digite a descrição da imagem..." type="text" pattern="[^;]*" required />
                     <label for="input_imagem_postar">Escolha a imagem</label>
                     <input name="Imagem" id="input_imagem_postar" class="input_formulario_postar_imagem"
                         accept="image/*" type="file" required />
@@ -87,11 +87,14 @@
                                         </div>
                                     </div>
                                     <img class="img_post" src="../images/Posts/@post.Imagem">
-                                    <div class="post_interacoes">
+                                    <form class="post_interacoes" method="POST" action='@Url.Action("Comentar")' enctype="multipart/form-data">
                                         <i class="far fa-heart post_interacoes_icon"></i>
-                                        <i class="far fa-comment post_interacoes_icon"></i>
-                                        <input class="input_comentar" type="text" placeholder="Comentar...">
-                                    </div>
+                                        <button type="submit">
+                                            <i class="far fa-comment post_interacoes_icon"></i>
+                                        </button>
+                                        <input class="input_comentar" name="Comentario" type="text" pattern="[^;]*" placeholder="Comentar..." required>
+                                        <input type="hidden" value="@post.IDPost.ToString()" name="IDPost">
+                                    </form>
                                     <div class="post_numlikes_comentarios">
                                         <span>INTLikes</span>
                                         <div class="comentarios_texto">
@@ -108,6 +111,24 @@
                                             </span>
                                             <p>@post.Legenda</p>
                                         </div>
+                                        @{
+                                            foreach (Comentario item2 in ViewBag.Comentarios)
+                                            {        
+                                                if (item2.IDPost.ToString() == post.IDPost.ToString())
+                                                {        
+                                                <div class="comentarios_texto">
+                                                    @foreach (Usuario item3 in ViewBag.Usuarios)
+                                                    {
+                                                        if (item3.IdUsuario.ToString() == item2.IDUsuario.ToString())
+                                                        {        
+                                                            <span>@item3.NomeDeUsuario</span>
+                                                        }
+                                                    }
+                                                    <p>@item2.TextoComentario</p>
+                                                </div>
+                                                }
+                                            }
+                                        }
                                     </div>
                                 </div>
                             }

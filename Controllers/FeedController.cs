@@ -12,6 +12,7 @@ namespace Instadev.Controllers
     {
         Post PostModel = new Post();
         Usuario UsuarioModel = new Usuario();
+        Comentario ComentarioModel = new Comentario();
         [Route("Index")]
         public IActionResult Index()
         {
@@ -44,6 +45,7 @@ namespace Instadev.Controllers
                 ViewBag.UsuariosExpostos = _usuarios;
                 ViewBag.Usuarios = UsuarioModel.ExibirInfo();
                 ViewBag.Posts = PostModel.LerTodas();
+                ViewBag.Comentarios = ComentarioModel.LerTodas();
                 return View();
             }
             else
@@ -82,6 +84,19 @@ namespace Instadev.Controllers
             }
             PostModel.Criar(NovoPost);
             ViewBag.Posts = PostModel.LerTodas();
+            return LocalRedirect("~/Feed/Index");
+        }
+
+        [Route("Comentar")]
+        public IActionResult Comentar(IFormCollection Form){
+            Comentario NovoComentario = new Comentario();
+            NovoComentario.TextoComentario = Form["Comentario"];
+            NovoComentario.IDUsuario = Int32.Parse(HttpContext.Session.GetString("IdUsuario"));
+            NovoComentario.IDPost = Int32.Parse(Form["IDPost"]);
+            NovoComentario.IDComentario = ComentarioModel.GerarID("Database/Comentario.csv");
+
+            ComentarioModel.Criar(NovoComentario);
+
             return LocalRedirect("~/Feed/Index");
         }
     }

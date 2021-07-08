@@ -55,8 +55,6 @@
                                 </div>
                             </div>
                             <section class="Comentarios">
-                                @* @foreach (var Comentários in ViewBag.comentarios)
-                                    { *@
                                 <div class="CadaComentario">
                                     <div class="UserComentario">
                                         <span>@ViewBag.Perfil.NomeDeUsuario</span>
@@ -64,7 +62,22 @@
                                     </div>
                                     <img src="/Img/Vector1.png" alt="Curtir comentário">
                                 </div>
-                                @* } *@
+                                 @foreach (Comentario C in ViewBag.comentarios)
+                                    { 
+                                        if (p.IDPost.ToString() == C.IDPost.ToString())
+                                        {
+                                            <div class="UserComentario">
+                                                @foreach (Usuario item in ViewBag.Usuarios)
+                                                {
+                                                   if (item.IdUsuario.ToString() == C.IDUsuario.ToString())
+                                                   {       
+                                                    <span>@item.NomeDeUsuario</span>
+                                                   } 
+                                                }
+                                                <p>@C.TextoComentario</p>
+                                            </div>
+                                        }
+                                    } 
                             </section>
                             <span class="VerComentarios">Ver todos os comentários</span>
                         </div>
