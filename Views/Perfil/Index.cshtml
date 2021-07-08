@@ -12,7 +12,17 @@
         <div class="DadosPerfilDireita">
             <h1>@ViewBag.Perfil.NomeDeUsuario</h1>
             <div class="PublicacaoSeguindoSeguidores">
-                <span>X publicações</span>
+                @{
+                    int NumPublicacoes = 0;
+                    foreach (Post p in ViewBag.post)
+                    {
+                        if (p.IDUsuario.ToString() == ViewBag.Perfil.IdUsuario.ToString())
+                        {
+                            NumPublicacoes ++;
+                        }
+                    }
+                    <span>@NumPublicacoes.ToString() publicações</span>
+                }
                 <span>Y seguindo</span>
                 <span>Z seguidores</span>
             </div>

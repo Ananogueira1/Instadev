@@ -71,12 +71,14 @@ namespace Instadev.Controllers
                 {
                     Directory.CreateDirectory(Pasta);
                 }
-                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Posts", Arquivo.FileName);
+                string[] arquivoSeparado = Arquivo.FileName.Split(".");
+                var NomeDoArquivo = arquivoSeparado[0] + NovoPost.IDPost.ToString() + "." + arquivoSeparado[1];
+                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Posts", NomeDoArquivo);
                 using (var Stream = new FileStream(caminho, FileMode.Create))
                 {
                     Arquivo.CopyTo(Stream);
                 }
-                NovoPost.Imagem = Arquivo.FileName;
+                NovoPost.Imagem = NomeDoArquivo;
             }
             else
             {

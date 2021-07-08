@@ -67,12 +67,14 @@ namespace Instadev.Controllers
                 {
                     Directory.CreateDirectory(Pasta);
                 }
-                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Usuarios", Arquivo.FileName);
+                string[] arquivoSeparado = Arquivo.FileName.Split(".");
+                var NomeDoArquivo = arquivoSeparado[0] + NovoUsuario.IdUsuario.ToString() + "." + arquivoSeparado[1];
+                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Usuarios", NomeDoArquivo);
                 using (var Stream = new FileStream(caminho, FileMode.Create))
                 {
                     Arquivo.CopyTo(Stream);
                 }
-                NovoUsuario.ImagemDePerfil = Arquivo.FileName;
+                NovoUsuario.ImagemDePerfil = NomeDoArquivo;
             }
             else
             {
